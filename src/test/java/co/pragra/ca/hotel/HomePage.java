@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Write a code which should work on both
  * firefox or chrome. firefox or chrome should be configurable.
@@ -27,7 +29,7 @@ public class HomePage {
             browser = "CHROME";
         }
         if(browser.equalsIgnoreCase("CHROME")){
-            System.setProperty("webdriver.chrome.driver", "/Users/atinsingh/Downloads/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/Users/atinsingh/Desktop/drivers/chromedriver");
             driver = new ChromeDriver();
         } else if(browser.equalsIgnoreCase("FIREFOX")){
             System.setProperty("webdriver.gecko.driver", "/Users/atinsingh/Downloads/geckodriver");
@@ -43,10 +45,14 @@ public class HomePage {
 
     @Test
     public void testHome() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         WebElement search = driver.findElement(By.name("q-destination"));
-        search.sendKeys("Auckland");
-        search.sendKeys(Keys.ESCAPE);
+        search.sendKeys("Halifax");
+
+        WebElement destinationOption = driver.findElement(By.xpath("//*[@id='citysqm-asi0-s2']/td/div[2]"));
+        destinationOption.click();
+
         driver.findElement(By.name("q-localised-check-in")).click();
         Thread.sleep(2000);
 
@@ -78,7 +84,8 @@ public class HomePage {
     }
 
     @AfterSuite
-    public void tearDown() {
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(15000);
         driver.quit();
     }
 }
