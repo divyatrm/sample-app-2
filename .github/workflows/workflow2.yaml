@@ -6,7 +6,7 @@ on:
     paths:                                               
       - 'sample-java-app/**'
       - 'sample-app-2/**'
-  workflow_dispatch:
+  ##workflow_dispatch:
 jobs:  
   build:     
      uses: divyatrm/pipeline/.github/workflows/build.yml@main
