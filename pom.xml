@@ -7,7 +7,7 @@
     <groupId>sel_delete</groupId>
     <artifactId>sel_delete</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+                                                     
     <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
