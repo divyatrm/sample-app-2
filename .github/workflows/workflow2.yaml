@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - develop
-    paths:
+    paths:                                
       - sample-java-app
       - sample-app-2 
   workflow_dispatch:
