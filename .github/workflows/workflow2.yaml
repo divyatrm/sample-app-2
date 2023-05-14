@@ -2,10 +2,11 @@ name: Main Workflow
 on:
   push:
     branches:
-      - feature branch
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: divyatrm/pipeline/.github/workflows/build.yml@main
+      - develop
+    paths:
+      - sample-java-app
+      - sample-app-2 
+  workflow_dispatch:
+jobs:  
+  build:     
+     uses: divyatrm/pipeline/.github/workflows/build.yml@main
