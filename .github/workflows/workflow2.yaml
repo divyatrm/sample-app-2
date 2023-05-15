@@ -7,5 +7,10 @@ on:
       - sample-app-2
       - sample-java-app
 jobs:  
-  build:     
-     uses: divyatrm/pipeline/.github/workflows/build.yml@main
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug
+        run: echo "Workflow is running"
+      - name: Build
+        uses: divyatrm/pipeline/.github/workflows/build.yml@main
