@@ -1,16 +1,14 @@
 name: Main Workflow
-on:  
+on:
   push:
     branches:
       - develop
     paths:
       - sample-app-2
       - sample-java-app
-jobs:  
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug
-        run: echo "Workflow is running"
-      - name: Build
-        uses: divyatrm/pipeline/.github/workflows/build.yml@main
+      - uses: actions/checkout@v2
+      - uses: divyatrm/pipeline/.github/workflows/build.yml@main
