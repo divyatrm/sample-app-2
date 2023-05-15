@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - develop
+    paths:
+      - sample-app-2
+      - sample-java-app
 jobs:  
   build:     
      uses: divyatrm/pipeline/.github/workflows/build.yml@main
